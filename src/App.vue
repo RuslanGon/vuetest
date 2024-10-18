@@ -63,10 +63,10 @@ form {
 
 input {
   height: 30px;
-
 }
 
 .container {
+  margin-top: 10px;
 height: 100px;
 max-width: 300px;
 background-color: rgb(221, 216, 216);
