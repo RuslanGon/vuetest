@@ -7,10 +7,16 @@
     <button>Send</button>
   </form>
   <!-- <p>{{ users }}</p> -->
+  <div v-if="users.length == 0">
+    <p className="container">now is not user</p>
+  </div>
+  <div v-else-if="users.length == 1">
+    <p className="container">now is one user</p>
+  </div>
   <div className="container" v-for="(el, index) in users" :key="index">
     <h3>{{ el.name }}</h3>
-  <p>{{ el.email}} - <b>{{ el.pass }}</b></p>
-</div>
+    <p>{{ el.email }} - <b>{{ el.pass }}</b></p>
+  </div>
 
 </template>
 
@@ -29,18 +35,18 @@ export default {
   },
   methods: {
     sendData() {
-      if(this.userName == ''){
+      if (this.userName == '') {
         this.error = 'name is required'
         return
-      } else  if(this.userPass== ''){
+      } else if (this.userPass == '') {
         this.error = 'password is required'
         return
-      } else  if(this.userEmai == ''){
+      } else if (this.userEmai == '') {
         this.error = 'email is required'
         return
       }
-       this.error = ''
-       
+      this.error = ''
+
       this.users.push({
         name: this.userName,
         pass: this.userPass,
@@ -67,9 +73,9 @@ input {
 
 .container {
   margin-top: 10px;
-height: 100px;
-max-width: 300px;
-background-color: rgb(221, 216, 216);
-padding: 15px 15px;
+  height: 100px;
+  max-width: 300px;
+  background-color: rgb(221, 216, 216);
+  padding: 15px 15px;
 }
 </style>
