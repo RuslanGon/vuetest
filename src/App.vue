@@ -6,11 +6,17 @@
     <p className="error">{{ error }}</p>
     <button>Send</button>
   </form>
-  <p>{{ users }}</p>
+  <!-- <p>{{ users }}</p> -->
+  <div v-for="(el, index) in users" :key="index">
+    <h3>{{ el.name }}</h3>
+  <p>{{ el.email}} - <b>{{ el.pass }}</b></p>
+</div>
 
 </template>
 
 <script>
+
+
 export default {
   data() {
     return {
@@ -33,6 +39,8 @@ export default {
         this.error = 'email is required'
         return
       }
+       this.error = ''
+       
       this.users.push({
         name: this.userName,
         pass: this.userPass,
