@@ -2,7 +2,7 @@
 <template>
 <h3>{{ info }}</h3>
 <p>{{ someInfo }}</p>
-<button type="button" @click="this.info = 'some info'">Send</button>
+<button type="button" @click="userData()">Send</button>
 
 </template>
 
@@ -12,6 +12,13 @@ export default {
     return {
       info: 'Title',
       someInfo: "Anons message"
+    }
+  },
+  methods: {
+    userData() {
+      this.info = 'some info'
+      this.someInfo = 'Hello Ruslan'
+
     }
   }
 }
