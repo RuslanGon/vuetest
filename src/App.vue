@@ -1,32 +1,37 @@
-
 <template>
-<form action="">
-<input type="text" placeholder="name">
-<input type="password" placeholder="password"> 
-<input type="email" placeholder="email">
-</form>
+  <form action="" @submit.prevent="sendData">
+    <input type="text" placeholder="name" v-model="userName">
+    <input type="password" placeholder="password" v-model="userPass">
+    <input type="email" placeholder="email" v-model="userEmail">
+    <button>Send</button>
+  </form>
+  <p>{{ users }}</p>
+
 </template>
 
 <script>
 export default {
   data() {
     return {
-      info: 'Title',
-      someInfo: "Anons message"
+      users: [],
+      userName: '',
+      userPass: '',
+      userEmail: '',
     }
   },
   methods: {
-    userData() {
-      this.info = 'some info'
-      this.someInfo = 'Hello Ruslan'
-
+    sendData() {
+      this.users.push({
+        name: this.userName,
+        pass: this.userPass,
+        email: this.userEmail
+      })
     }
   }
 }
 </script>
 
 <style scoped>
-
 form {
   display: flex;
   flex-direction: column;
@@ -35,9 +40,9 @@ form {
   border: 2px solid red;
   padding: 15px 15px;
 }
+
 input {
   height: 30px;
 
 }
-
 </style>
