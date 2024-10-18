@@ -7,7 +7,7 @@
     <button>Send</button>
   </form>
   <!-- <p>{{ users }}</p> -->
-  <div v-for="(el, index) in users" :key="index">
+  <div className="container" v-for="(el, index) in users" :key="index">
     <h3>{{ el.name }}</h3>
   <p>{{ el.email}} - <b>{{ el.pass }}</b></p>
 </div>
@@ -64,5 +64,12 @@ form {
 input {
   height: 30px;
 
+}
+
+.container {
+height: 100px;
+max-width: 300px;
+background-color: rgb(221, 216, 216);
+padding: 15px 15px;
 }
 </style>
