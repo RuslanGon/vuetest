@@ -3,6 +3,7 @@
     <input type="text" placeholder="name" v-model="userName">
     <input type="password" placeholder="password" v-model="userPass">
     <input type="email" placeholder="email" v-model="userEmail">
+    <p className="error">{{ error }}</p>
     <button>Send</button>
   </form>
   <p>{{ users }}</p>
@@ -14,6 +15,7 @@ export default {
   data() {
     return {
       users: [],
+      error: '',
       userName: '',
       userPass: '',
       userEmail: '',
@@ -21,6 +23,10 @@ export default {
   },
   methods: {
     sendData() {
+      if(this.userName == ''){
+        this.error = 'name is required'
+        return
+      }
       this.users.push({
         name: this.userName,
         pass: this.userPass,
