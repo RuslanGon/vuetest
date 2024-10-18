@@ -1,9 +1,10 @@
 
 <template>
-<h3>{{ info }}</h3>
-<p>{{ someInfo }}</p>
-<button type="button" @click="userData()">Send</button>
-
+<form action="">
+<input type="text" placeholder="name">
+<input type="password" placeholder="password"> 
+<input type="email" placeholder="email">
+</form>
 </template>
 
 <script>
@@ -26,13 +27,17 @@ export default {
 
 <style scoped>
 
-h3 {
-  font-size: 24px;
-  font-weight: lighter;
-  color: gold;
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  gap: 10px;
+  border: 2px solid red;
+  padding: 15px 15px;
 }
-p {
-font-size: 20px;
+input {
+  height: 30px;
+
 }
 
 </style>
