@@ -26,6 +26,12 @@ export default {
       if(this.userName == ''){
         this.error = 'name is required'
         return
+      } else  if(this.userPass== ''){
+        this.error = 'password is required'
+        return
+      } else  if(this.userEmai == ''){
+        this.error = 'email is required'
+        return
       }
       this.users.push({
         name: this.userName,
