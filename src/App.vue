@@ -13,7 +13,7 @@
   <div v-else-if="users.length == 1">
     <p className="container">now is one user</p>
   </div>
-  <User  v-for="(el, index) in users" :key="index" />
+  <User  v-for="(el, index) in users" :key="index" :user="el" />
 
 </template>
 
