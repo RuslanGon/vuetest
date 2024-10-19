@@ -13,10 +13,7 @@
   <div v-else-if="users.length == 1">
     <p className="container">now is one user</p>
   </div>
-  <div className="container" v-for="(el, index) in users" :key="index">
-    <h3>{{ el.name }}</h3>
-    <p>{{ el.email }} - <b>{{ el.pass }}</b></p>
-  </div>
+  <User  v-for="(el, index) in users" :key="index" />
 
 </template>
 
@@ -25,6 +22,7 @@ import User from './components/User.vue'
 
 
 export default {
+  components: { User },
   data() {
     return {
       users: [],
