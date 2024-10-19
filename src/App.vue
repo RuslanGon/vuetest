@@ -13,7 +13,7 @@
   <div v-else-if="users.length == 1">
     <p className="container">now is one user</p>
   </div>
-  <User  v-for="(el, index) in users" :key="index" :user="el" />
+  <User v-for="(el, index) in users" :key="index" :user="el" index="index" :deleteUser="deleteUser" />
 
 </template>
 
@@ -55,6 +55,9 @@ export default {
       this.userName = '';
       this.userPass = '';
       this.userEmail = '';
+    },
+    deleteUser(index) {
+      this.users.splice(index, 1)
     }
   }
 }
@@ -68,6 +71,7 @@ form {
   gap: 10px;
   border: 2px solid red;
   padding: 15px 15px;
+
 }
 
 input {
@@ -80,5 +84,14 @@ input {
   max-width: 300px;
   background-color: rgb(221, 216, 216);
   padding: 15px 15px;
+
+}
+
+button {
+  background-color: green;
+  cursor: pointer;
+  width: 100px;
+margin-left: 100px;
+color: white;
 }
 </style>
