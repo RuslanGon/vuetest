@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import User from './components/User.vue'
 
 
 export default {
@@ -41,7 +42,7 @@ export default {
       } else if (this.userPass == '') {
         this.error = 'password is required'
         return
-      } else if (this.userEmai == '') {
+      } else if (this.userEmail == '') {
         this.error = 'email is required'
         return
       }
@@ -52,6 +53,10 @@ export default {
         pass: this.userPass,
         email: this.userEmail
       })
+
+      this.userName = '';
+      this.userPass = '';
+      this.userEmail = '';
     }
   }
 }
