@@ -8,10 +8,10 @@
   </form>
   <!-- <p>{{ users }}</p> -->
   <div v-if="users.length == 0">
-    <p className="container">now is not user</p>
+    <p className="container1">now is not user</p>
   </div>
   <div v-else-if="users.length == 1">
-    <p className="container">now is one user</p>
+    <p className="container1">now is one user</p>
   </div>
   <User v-for="(el, index) in users" :key="index" :user="el" index="index" :deleteUser="deleteUser" />
 
