@@ -53,7 +53,7 @@
   margin-left: 20px;
 }
 
-.wrapper button:focus {
+.wrapper button:hover {
   background-color: white;
   color: black;
 }
