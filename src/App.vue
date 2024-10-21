@@ -2,6 +2,8 @@
   <div class="wrapper">
     <h1>Weather Application</h1>
     <p>Find out the weather in your city</p>
+    <input type="text" placeholder="enter yuor city">
+    <button>get weather</button>
   </div>
 </template>
 
@@ -23,6 +25,21 @@
 
 .wrapper h1 {
   margin-top: 50px;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
+}
+
+.wrapper input {
+  margin-top: 30px;
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px solid gold;
+  color: white;
+  font-size: 14px;
+  padding: 5px 8px;
+  outline: none;
+}
+
+.wrapper input:focus {
+  border-bottom-color: white;
 }
 </style>
