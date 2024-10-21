@@ -6,12 +6,12 @@
     <button v-if="city !== ''" @click="getWeather()">узнать погоду</button>
     <button disabled v-else>введите ваш город</button>
     <p class="text">{{ error }}</p>
-  <p v-if="info && info.main">Температура: {{ info.main.temp }}°C</p>
-<p v-if="info && info.main">Ощущается как: {{ info.main.feels_like }}°C</p>
-<p v-if="info && info.main">Влажность: {{ info.main.humidity }}%</p>
-<p v-if="info && info.wind">Скорость ветра: {{ info.wind.speed }} м/с</p>
-<p v-if="info && info.weather">Описание: {{ info.weather[0].description }}</p>
-  </div> 
+    <p v-if="info && info.main">Температура: {{ info.main.temp }}°C</p>
+    <p v-if="info && info.main">Ощущается как: {{ info.main.feels_like }}°C</p>
+    <p v-if="info && info.main">Влажность: {{ info.main.humidity }}%</p>
+    <p v-if="info && info.wind">Скорость ветра: {{ info.wind.speed }} м/с</p>
+    <p v-if="info && info.weather">Описание: {{ info.weather[0].description }}</p>
+  </div>
 </template>
 
 <script> 
@@ -27,7 +27,7 @@ export default {
   },
   computed: {
     cityName() {
-      return this.city ; 
+      return this.city;
     }
   },
   methods: {
@@ -36,17 +36,17 @@ export default {
         this.error = 'Введите более 1 символа';
         return false;
       }
-      
+
       this.error = '';
       axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${this.city}&units=metric&appid=581f2fd2d7c7cd7fdada18bd7ec0b718`)
-      .then(res => {
-        this.info = res.data;
-        this.error = ''; 
-      })
-      .catch(err => {
-        this.error = 'Не удалось получить данные о погоде. Пожалуйста, проверьте правильность ввода города.';
-        this.info = null; 
-      });
+        .then(res => {
+          this.info = res.data;
+          this.error = '';
+        })
+        .catch(err => {
+          this.error = 'Не удалось получить данные о погоде. Пожалуйста, проверьте правильность ввода города.';
+          this.info = null;
+        });
     }
   }
 }
@@ -57,7 +57,6 @@ export default {
   width: 900px;
   height: 500px;
   border-radius: 50px;
-  /* background-color: rgb(182, 180, 180); */
   color: white;
   padding: 20px;
   text-align: center;
@@ -115,6 +114,5 @@ export default {
 .text {
   color: white;
   padding-top: 20px;
-  /* font-size: 40px; */
 }
 </style>
