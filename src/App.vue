@@ -20,4 +20,9 @@
   padding: 20px;
   text-align: center;
 }
+
+.wrapper h1 {
+  margin-top: 50px;
+  padding-bottom: 10px;
+}
 </style>
