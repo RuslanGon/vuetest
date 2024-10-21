@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <h1>Приложение погоды</h1>
-    <p>Узнайтm погоду в {{ city === '' ? 'вашем городе' : cityName }}</p>
+    <p>Узнать погоду в {{ city === '' ? 'вашем городе' : cityName }}</p>
     <input type="text" @input="city = $event.target.value" placeholder="введите ваш город">
     <button v-if="city !== ''" @click="getWeather()">узнать погоду</button>
     <button disabled v-else>введите ваш город</button>
