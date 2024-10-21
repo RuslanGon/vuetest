@@ -1,20 +1,35 @@
 <template>
   <div class="wrapper">
     <h1>Weather Application</h1>
-    <p>Find out the weather in {{ city === '' ? 'your city' : city }}</p>
+    <p>Find out the weather in {{ city === '' ? 'your city' : cityName}}</p>
     <input type="text" @input="this.city = $event.target.value" placeholder="enter yuor city">
     <!-- <input type="text" v-model="city" placeholder="enter yuor city"> -->
-    <button v-if="city != ''">get weather</button>
+    <button v-if="city != ''" @click="getWeather()">get weather</button>
     <button disabled v-else>enter your weather</button>
-
+    <p class="text">{{ error }}</p>
   </div> 
 </template>
 
-<script>
+<script> 
 export default {
   data() {
     return {
-      city: ''
+      city: '',
+      error: ''
+    }
+  },
+  computed: {
+    cityName() {
+      return "< " + this.city + " >" 
+    }
+  } ,
+  methods: {
+    getWeather() {
+      if (this.city.trim().length < 2) {
+        this.error = 'enter more than 1 characters'
+        return false
+      }
+      this.error = ''
     }
   }
 }
@@ -71,5 +86,10 @@ export default {
 .wrapper button:disabled {
   background-color: gold;
   color: black;
+}
+
+.text {
+  color: white;
+  padding-top: 20px;
 }
 </style>
