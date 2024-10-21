@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <h1>Приложение погоды</h1>
-    <p>Узнайте погоду в {{ city === '' ? 'вашем городе' : cityName }}</p>
+    <p>Узнайтm погоду в {{ city === '' ? 'вашем городе' : cityName }}</p>
     <input type="text" @input="city = $event.target.value" placeholder="введите ваш город">
     <button v-if="city !== ''" @click="getWeather()">узнать погоду</button>
     <button disabled v-else>введите ваш город</button>
@@ -27,7 +27,7 @@ export default {
   },
   computed: {
     cityName() {
-      return "< " + this.city + " >"; 
+      return this.city ; 
     }
   },
   methods: {
@@ -65,12 +65,18 @@ export default {
 
 
 .wrapper h1 {
-  margin-top: 150px;
+  font-size: 44px;
+  margin-top: 100px;
   padding-bottom: 20px;
+}
+
+.wrapper p {
+  font-size: 20px;
 }
 
 .wrapper input {
   margin-top: 30px;
+  font-size: 20px;
   background-color: transparent;
   border: 0;
   border-bottom: 2px solid gold;
@@ -85,13 +91,15 @@ export default {
 }
 
 .wrapper button {
-  background-color: black;
+  background-color: transparent;
   color: white;
   padding: 10px 10px;
-  border: none;
+  border: 1px solid white;
   border-radius: 15px;
   cursor: pointer;
   margin-left: 20px;
+
+
 }
 
 .wrapper button:hover {
@@ -107,5 +115,6 @@ export default {
 .text {
   color: white;
   padding-top: 20px;
+  /* font-size: 40px; */
 }
 </style>
