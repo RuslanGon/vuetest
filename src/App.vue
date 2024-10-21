@@ -6,8 +6,11 @@
     <button v-if="city !== ''" @click="getWeather()">узнать погоду</button>
     <button disabled v-else>введите ваш город</button>
     <p class="text">{{ error }}</p>
-    <p v-if="info && info.main">Температура: {{ info.main.temp }}°C</p>
-    <p v-if="info && info.main">Ощущается как: {{ info.main.feels_like }}°C</p>
+  <p v-if="info && info.main">Температура: {{ info.main.temp }}°C</p>
+<p v-if="info && info.main">Ощущается как: {{ info.main.feels_like }}°C</p>
+<p v-if="info && info.main">Влажность: {{ info.main.humidity }}%</p>
+<p v-if="info && info.wind">Скорость ветра: {{ info.wind.speed }} м/с</p>
+<p v-if="info && info.weather">Описание: {{ info.weather[0].description }}</p>
   </div> 
 </template>
 
@@ -54,14 +57,15 @@ export default {
   width: 900px;
   height: 500px;
   border-radius: 50px;
-  background-color: rgb(48, 46, 46);
+  /* background-color: rgb(182, 180, 180); */
   color: white;
   padding: 20px;
   text-align: center;
 }
 
+
 .wrapper h1 {
-  margin-top: 50px;
+  margin-top: 150px;
   padding-bottom: 20px;
 }
 

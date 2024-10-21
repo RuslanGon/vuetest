@@ -6,7 +6,9 @@
 body {
     width: 100%;
     min-height: 100vh;
-    background-color: rgb(245, 222, 95);
+    background-image: url('@/assets/wea.jpg');
+    background-size: cover; /* Обеспечивает покрытие всего элемента */
+    background-position: center; /* Центрирует изображение */
     display: flex;
     justify-content: center;
     align-items: center;
