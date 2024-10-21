@@ -1,13 +1,23 @@
 <template>
   <div class="wrapper">
     <h1>Weather Application</h1>
-    <p>Find out the weather in your city</p>
-    <input type="text" placeholder="enter yuor city">
-    <button>get weather</button>
-  </div>
+    <p>Find out the weather in {{ city === '' ? 'your city' : city }}</p>
+    <input type="text" @input="this.city = $event.target.value" placeholder="enter yuor city">
+    <!-- <input type="text" v-model="city" placeholder="enter yuor city"> -->
+    <button v-if="city != ''">get weather</button>
+    <button disabled v-else>enter your weather</button>
+
+  </div> 
 </template>
 
 <script>
+export default {
+  data() {
+    return {
+      city: ''
+    }
+  }
+}
 
 </script>
 
@@ -55,6 +65,11 @@
 
 .wrapper button:hover {
   background-color: white;
+  color: black;
+}
+
+.wrapper button:disabled {
+  background-color: gold;
   color: black;
 }
 </style>
