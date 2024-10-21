@@ -1,6 +1,7 @@
 <template>
   <div class="wrapper">
     <h1>Weather Application</h1>
+    <p>Find out the weather in your city</p>
   </div>
 </template>
 
@@ -11,13 +12,12 @@
 
 <style scoped>
 .wrapper {
-  width: 300px; /* Увеличил ширину для лучшего отображения */
-  height: 300px; /* Увеличил высоту */
-  background-color: brown;
-  display: flex; /* Добавил flex для центрирования содержимого */
-  justify-content: center; /* Центр по горизонтали */
-  align-items: center; /* Центр по вертикали */
-  color: white; /* Добавил белый цвет текста для контраста */
-  border: 2px solid black; /* Добавил рамку для лучшего визуального восприятия */
+  width: 900px;
+  height: 500px;
+  border-radius: 50px;
+  background-color: rgb(48, 46, 46);
+  color: white;
+  padding: 20px;
+  text-align: center;
 }
 </style>
