@@ -1,41 +1,52 @@
 <template>
   <div class="wrapper">
-    <h1>Weather Application</h1>
-    <p>Find out the weather in {{ city === '' ? 'your city' : cityName}}</p>
-    <input type="text" @input="this.city = $event.target.value" placeholder="enter yuor city">
-    <!-- <input type="text" v-model="city" placeholder="enter yuor city"> -->
-    <button v-if="city != ''" @click="getWeather()">get weather</button>
-    <button disabled v-else>enter your weather</button>
+    <h1>Приложение погоды</h1>
+    <p>Узнайте погоду в {{ city === '' ? 'вашем городе' : cityName }}</p>
+    <input type="text" @input="city = $event.target.value" placeholder="введите ваш город">
+    <button v-if="city !== ''" @click="getWeather()">узнать погоду</button>
+    <button disabled v-else>введите ваш город</button>
     <p class="text">{{ error }}</p>
+    <p v-if="info && info.main">Температура: {{ info.main.temp }}°C</p>
+    <p v-if="info && info.main">Ощущается как: {{ info.main.feels_like }}°C</p>
   </div> 
 </template>
 
 <script> 
+import axios from 'axios';
+
 export default {
   data() {
     return {
       city: '',
-      error: ''
+      error: '',
+      info: null
     }
   },
   computed: {
     cityName() {
-      return "< " + this.city + " >" 
+      return "< " + this.city + " >"; 
     }
-  } ,
+  },
   methods: {
     getWeather() {
       if (this.city.trim().length < 2) {
-        this.error = 'enter more than 1 characters'
-        return false
+        this.error = 'Введите более 1 символа';
+        return false;
       }
-      this.error = ''
+      this.error = '';
+      axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${this.city}&units=metric&appid=581f2fd2d7c7cd7fdada18bd7ec0b718`)
+      .then(res => {
+        this.info = res.data;
+        this.error = ''; 
+      })
+      .catch(err => {
+        this.error = 'Не удалось получить данные о погоде. Пожалуйста, проверьте правильность ввода города.';
+        this.info = null; 
+      });
     }
   }
 }
-
 </script>
-
 
 <style scoped>
 .wrapper {
