@@ -42,4 +42,19 @@
 .wrapper input:focus {
   border-bottom-color: white;
 }
+
+.wrapper button {
+  background-color: black;
+  color: white;
+  padding: 10px 10px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+.wrapper button:focus {
+  background-color: white;
+  color: black;
+}
 </style>
