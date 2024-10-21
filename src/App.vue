@@ -33,6 +33,7 @@ export default {
         this.error = 'Введите более 1 символа';
         return false;
       }
+      
       this.error = '';
       axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${this.city}&units=metric&appid=581f2fd2d7c7cd7fdada18bd7ec0b718`)
       .then(res => {
