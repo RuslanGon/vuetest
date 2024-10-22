@@ -37,7 +37,7 @@ export default {
     setCryptoSecond(val) {
       this.cryptoSecond = val;
     },
-    convert() {
+    async convert() {
       if (this.amount <= 0) {
         this.error = 'Enter a number greater than 0';
         return;
@@ -49,6 +49,8 @@ export default {
         return;
       }
       this.error = ''; 
+
+      await convert.ready()
     }
   }
 }
