@@ -15,11 +15,10 @@ export default {
 <style scoped>
 ul {
     list-style: none;
-    width: 200px;
+    width: 170px;
     padding: 0;
     border-radius: 3px;
     border: 3px solid gold;
-    margin-left: 540px;
     margin-top: 20px;
 }
 
