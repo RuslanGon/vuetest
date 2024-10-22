@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>CRYPTO</h1>
+    <h1>C R Y P T O</h1>
     <Input :changeAmount="changeAmount"/>
     <div class="selectors">
       <Selector :setCrypto="setCryptoFirst"/>
