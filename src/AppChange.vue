@@ -11,8 +11,11 @@
 </template>
 
 <script>
+import CryptoConvert from 'crypto-convert';
 import Input from './components/Input.vue';
 import Selector from './components/Selector.vue';
+
+const convert = new CryptoConvert();
 
 export default {
   components: { Input, Selector },
