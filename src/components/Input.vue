@@ -1,12 +1,16 @@
 <template>
 <input type="number" min="0" @input="changeAmount($event.target.value)"><br>
-<button>Convert</button>
+<button @click="convert()">Convert</button>
 </template>
 
 <script>
 export default {
 props: {
     changeAmount: {
+        type: Function,
+        required: true
+    },
+    convert: {
         type: Function,
         required: true
     }
