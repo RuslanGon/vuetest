@@ -1,15 +1,16 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 body {
-background-image: url('@/assets/cripto.jpg');
-background-size: cover; /* Обеспечивает покрытие всего элемента */
-background-position: center; /* Центрирует изображение */
+    background-image: url('@/assets/cripto.jpg');
+    background-size: cover;
+    background-position: center;
     text-align: center;
+    font-family: "Montserrat", sans-serif;
 }
 
 h1 {
-    margin-top: 70px;
+    margin-top: 140px;
     font-size: 60px;
-    color:white;
+    color: white;
     margin-bottom: 20px;
 }
