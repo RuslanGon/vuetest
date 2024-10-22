@@ -1,17 +1,15 @@
-* {
-    margin: 0;
-    padding: 0;
-}
+
 
 body {
-    background-color: gold;
+background-image: url('@/assets/cripto.jpg');
+background-size: cover; /* Обеспечивает покрытие всего элемента */
+background-position: center; /* Центрирует изображение */
     text-align: center;
 }
 
 h1 {
-    text-align: center;
-    margin-top: 100px;
-    font-size: 40px;
-    color: black;
+    margin-top: 70px;
+    font-size: 60px;
+    color:white;
     margin-bottom: 20px;
 }
