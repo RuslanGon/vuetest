@@ -3,7 +3,7 @@
     <h1>C R Y P T O</h1>
     <Input :changeAmount="changeAmount" :convert="convert"/>
     <p v-if="error != ''">{{ error }}</p>
-    <p v-if="result !== 0">{{ result }}</p>
+    <p class="result"v-if="result !== 0">{{ result }}</p>
 
     <div class="selectors">
       <Selector :setCrypto="setCryptoFirst"/>
@@ -93,6 +93,9 @@ export default {
 </script>
 
 <style scoped>
+.result {
+  font-size: 24px;
+}
 .selectors {
   display: flex;
   margin-left: 440px;
