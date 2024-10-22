@@ -3,7 +3,7 @@
     <h1>C R Y P T O</h1>
     <Input :changeAmount="changeAmount" :convert="convert"/>
     <p v-if="error != ''">{{ error }}</p>
-    <p v-if="result != 0">{{ result }}</p>
+    <p v-if="result !== 0">{{ result }}</p>
 
     <div class="selectors">
       <Selector :setCrypto="setCryptoFirst"/>
@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     changeAmount(val) {
-      this.amount = val;
+      this.amount = parseFloat(val); // Убедимся, что amount - это число
     },
     setCryptoFirst(val) {
       this.cryptoFirst = val;
@@ -41,7 +41,7 @@ export default {
       this.cryptoSecond = val;
     },
     async convert() {
-      if (this.amount <= 0) {
+      if (this.amount <= 0 || isNaN(this.amount)) {
         this.error = 'Enter a number greater than 0';
         return;
       } else if (this.cryptoFirst === '' || this.cryptoSecond === '') {
@@ -53,8 +53,40 @@ export default {
       }
       this.error = ''; 
 
-      await convert.ready()
-      this.result = convert.BTC.USD(1);
+      try {
+        // Ждём готовности конвертера
+        await convert.ready();
+
+        // Логируем выбранные валюты
+        console.log(`Converting ${this.cryptoFirst} to ${this.cryptoSecond}`);
+
+        // Получаем соответствующий метод для конвертации
+        const conversionMethod = convert[this.cryptoFirst][this.cryptoSecond];
+
+        // Проверяем наличие метода конвертации
+        if (typeof conversionMethod !== 'function') {
+          this.error = 'Conversion rate is invalid';
+          return;
+        }
+
+        // Выполняем конвертацию
+        const rate = await conversionMethod(1);
+
+        // Логируем курс для проверки
+        console.log(`Rate for ${this.cryptoFirst} to ${this.cryptoSecond}:`, rate);
+
+        // Проверяем, что курс является числом
+        if (isNaN(rate)) {
+          this.error = 'Conversion rate is invalid';
+          return;
+        }
+
+        // Рассчитываем результат
+        this.result = rate * this.amount;
+      } catch (err) {
+        this.error = 'Error fetching conversion rate';
+        console.error(err);
+      }
     }
   }
 }
