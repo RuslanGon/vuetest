@@ -36,13 +36,16 @@ export default {
     },
     convert() {
       if (this.amount <= 0) {
-        this.error = 'enter a number greater than 0'
-        return
-      }else if (this.setCryptoFirst == this.setCryptoSecond) {
-        this.error = 'select currency'
-        return
+        this.error = 'Enter a number greater than 0';
+        return;
+      } else if (this.cryptoFirst === '' || this.cryptoSecond === '') {
+        this.error = 'Select both currencies';
+        return;
+      } else if (this.cryptoFirst === this.cryptoSecond) {
+        this.error = 'Select different currencies';
+        return;
       }
-
+      this.error = ''; 
     }
   }
 }
