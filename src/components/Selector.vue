@@ -1,8 +1,8 @@
 <template>
     <ul>
-        <li @click="setCrypto('BTC')">Bitcoin</li>
-        <li @click="setCrypto('ENT')">ETH</li>
-        <li @click="setCrypto('USDT')">USDT</li>
+        <li @click="selectItem('BTC')" :class="current == 'BTC' ? 'active' : ''">Bitcoin</li>
+        <li @click="selectItem('ENT')" :class="current == 'ENT' ? 'active' : ''">ENT</li>
+        <li @click="selectItem('USDT')" :class="current == 'USDT' ? 'active' : ''">USDT</li>
     </ul>
 </template>
 
@@ -13,6 +13,17 @@ props: {
         type: Function,
         required: true
     }
+},
+data() {
+    return {
+        current: ''
+    }
+},
+methods: {
+selectItem(val) {
+    this.setCrypto(val),
+    this.current = val
+}
 }
 }
 </script>
@@ -38,4 +49,6 @@ li:hover, li:active {
     background-color: rgb(253, 242, 180);
     color: black;
 }
+
+
 </style>

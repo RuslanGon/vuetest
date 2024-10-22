@@ -2,7 +2,6 @@
   <div>
     <h1>CRYPTO</h1>
     <Input :changeAmount="changeAmount"/>
-     {{ cryptoFirst }} и {{ cryptoSecond }}
     <div class="selectors">
       <Selector :setCrypto="setCryptoFirst"/>
       <Selector :setCrypto="setCryptoSecond"/>
