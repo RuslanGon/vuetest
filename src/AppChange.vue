@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>C R Y P T O</h1>
-    <Input :changeAmount="changeAmount" :convert="convert"/>
+    <Input :changeAmount="changeAmount" :convert="convert" :favourite="favourite"/>
     <p v-if="error != ''">{{ error }}</p>
     <p class="result"v-if="result !== 0">{{ result }}</p>
 
@@ -27,7 +27,8 @@ export default {
       cryptoFirst: '',   
       cryptoSecond: '',
       error: '',
-      result: 0
+      result: 0,
+      favs: []
     }
   },
   methods: {
@@ -87,6 +88,9 @@ export default {
         this.error = 'Error fetching conversion rate';
         console.error(err);
       }
+    },
+    favourite() {
+      console.log('helo');
     }
   }
 }

@@ -1,6 +1,8 @@
 <template>
 <input type="number" min="0" @input="changeAmount($event.target.value)"><br>
 <button @click="convert()">Convert</button>
+<button class="fav" @click="favourite()">Favorites</button>
+
 </template>
 
 <script>
@@ -13,12 +15,19 @@ props: {
     convert: {
         type: Function,
         required: true
+    },
+    favourite: {
+        type: Function,
+        required: true
     }
 }
 }
 </script>
 
 <style scoped>
+.fav {
+    margin-left: 20px;
+}
 button{
     margin-top: 20px;
     padding: 10px 15px;
