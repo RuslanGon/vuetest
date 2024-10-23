@@ -18,10 +18,14 @@ props: {
 </script>
 
 <style scoped>
+div:hover {
+    cursor: pointer;
+    color: gold;
+}
 div {
-    margin-left: 583px;
+    margin-left: 500px;
     display: flex;
-    gap: 20px;
+    gap: 170px;
 }
 h2 {
     color: white;
