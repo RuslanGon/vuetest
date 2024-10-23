@@ -13,6 +13,9 @@
   <div v-else-if="users.length == 1">
     <p className="container1">now is one user</p>
   </div>
+  <div v-else-if="users.length == 2">
+    <p className="container1">now is two user</p>
+  </div>
   <User v-for="(el, index) in users" :key="index" :user="el" index="index" :deleteUser="deleteUser" />
 
 </template>
