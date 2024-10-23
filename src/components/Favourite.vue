@@ -1,7 +1,7 @@
 <template>
 <h2>Options to favorites</h2>
 <div @click="getFormFavs(index)" v-for="(el, index) in favs" key="index">
-<span>{{ el.form }}</span>
+<span>{{ el.from }}</span>
 <span>{{ el.to }}</span>
 </div>
 </template>

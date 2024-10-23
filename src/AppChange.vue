@@ -93,7 +93,7 @@ export default {
     },
     favourite() {
       this.favs.push({
-        form: this.cryptoFirst,
+        from: this.cryptoFirst,
         to: this.cryptoSecond
       })
     },
