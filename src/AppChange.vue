@@ -4,7 +4,7 @@
     <Input :changeAmount="changeAmount" :convert="convert" :favourite="favourite"/>
     <p v-if="error != ''">{{ error }}</p>
     <p class="result"v-if="result !== 0">{{ result }}</p>
-    <Favourite :favs="favs" v-if="favs.length > 0"/>
+    <Favourite :favs="favs" v-if="favs.length > 0" :getFormFavs="getFormFavs"/>
     <div class="selectors">
       <Selector :setCrypto="setCryptoFirst"/>
       <Selector :setCrypto="setCryptoSecond"/>
@@ -92,10 +92,14 @@ export default {
       }
     },
     favourite() {
-this.favs.push({
-  form: this.cryptoFirst,
-  to: this.cryptoSecond
-})
+      this.favs.push({
+        form: this.cryptoFirst,
+        to: this.cryptoSecond
+      })
+    },
+    getFormFavs(index) {
+      this.cryptoFirst = this.favs[index].from
+      this.cryptoSecond = this.favs[index].to
     }
   }
 }

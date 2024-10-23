@@ -1,6 +1,6 @@
 <template>
 <h2>Options to favorites</h2>
-<div v-for="(el, index) in favs" key="index">
+<div @click="getFormFavs(index)" v-for="(el, index) in favs" key="index">
 <span>{{ el.form }}</span>
 <span>{{ el.to }}</span>
 </div>
@@ -11,6 +11,10 @@ export default {
 props: {
     favs: {
         type: Array,
+        required: true
+    },
+    getFormFavs: {
+        type: Function,
         required: true
     }
 }
