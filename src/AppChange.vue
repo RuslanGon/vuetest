@@ -4,7 +4,7 @@
     <Input :changeAmount="changeAmount" :convert="convert" :favourite="favourite"/>
     <p v-if="error != ''">{{ error }}</p>
     <p class="result"v-if="result !== 0">{{ result }}</p>
-
+{{ favs }}
     <div class="selectors">
       <Selector :setCrypto="setCryptoFirst"/>
       <Selector :setCrypto="setCryptoSecond"/>
@@ -90,7 +90,10 @@ export default {
       }
     },
     favourite() {
-      console.log('helo');
+this.favs.push({
+  form: this.cryptoFirst,
+  to: this.cryptoSecond
+})
     }
   }
 }
