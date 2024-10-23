@@ -6,11 +6,11 @@
     <p class="result"v-if="result !== 0">{{ result }}</p>
     <Favourite :favs="favs" v-if="favs.length > 0" :getFormFavs="getFormFavs"/>
     <div class="selectors">
-      <Selector :setCrypto="setCryptoFirst"/>
-      <Selector :setCrypto="setCryptoSecond"/>
+      <Selector :setCrypto="setCryptoFirst" :cryptoNow="cryptoFirst"/>
+      <Selector :setCrypto="setCryptoSecond" :cryptoNow="cryptoSecond"/>
     </div>
   </div>
-</template>
+</template> 
 
 <script>
 import CryptoConvert from 'crypto-convert';
